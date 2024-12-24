@@ -7,7 +7,6 @@ Original file is located at
     https://colab.research.google.com/drive/1QF-F0zFBC37xGbHwil9XArKutu_GZMIe
 """
 
-!pip install streamlit
 
 import pandas as pd
 from sklearn.cluster import KMeans
