@@ -20,8 +20,7 @@ from scipy.optimize import linprog
 
 
 # Load the dataset
-df = pd.read_csv("/content/sample_data/ems.csv")  # Ensure this file is uploaded alongside your app in GitHub
-
+df = pd.read_csv("ems.csv")  
 
 # 1. Perform K-Means Clustering
 def perform_clustering(df):
