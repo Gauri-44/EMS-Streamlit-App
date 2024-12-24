@@ -1,7 +1,8 @@
 pandas
-sklearn
+scikit-learn
 matplotlib
 seaborn
 streamlit
 networkx
 scipy
+
