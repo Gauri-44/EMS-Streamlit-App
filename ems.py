@@ -102,9 +102,13 @@ def resource_allocation(df):
 # 6. Perform EDA
 def perform_eda(df):
     st.write("### Exploratory Data Analysis")
+
+    # Basic statistics
     st.write("#### Basic Statistics")
     st.write(df.describe())
 
+    # Appointments trend by year
+    st.write("#### Appointments Trend by Year")
     yearly_totals = df[[f"Appointments_{year}" for year in range(2020, 2025)]].sum()
     plt.figure(figsize=(10, 6))
     sns.lineplot(data=yearly_totals, marker="o")
@@ -112,6 +116,26 @@ def perform_eda(df):
     plt.xlabel("Year")
     plt.ylabel("Total Appointments")
     plt.grid()
+    st.pyplot(plt)
+
+    # Distribution of hospitals count
+    st.write("#### Distribution of Hospitals Count")
+    plt.figure(figsize=(8, 6))
+    sns.histplot(df["Hospitals Count"], kde=True, bins=10, color="blue")
+    plt.title("Distribution of Hospitals Count")
+    plt.xlabel("Number of Hospitals")
+    plt.ylabel("Frequency")
+    st.pyplot(plt)
+
+    # Appointments distribution by area
+    st.write("#### Appointments Distribution by Area")
+    area_appointments = df.groupby("Area")["Appointments_2024"].sum()
+    plt.figure(figsize=(12, 6))
+    sns.barplot(x=area_appointments.index, y=area_appointments.values, palette="viridis")
+    plt.title("Total Appointments by Area (2024)")
+    plt.xlabel("Area")
+    plt.ylabel("Total Appointments")
+    plt.xticks(rotation=45)
     st.pyplot(plt)
 
 
